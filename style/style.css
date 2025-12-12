@@ -1,0 +1,691 @@
+/* ============================================
+   ESTILOS GENERALES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================================
+   BARRA DE NAVEGACIÓN
+   ============================================ */
+nav {
+    background: linear-gradient(to right, #2c3e50, #4a6491);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: #4ecdc4;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a, #logout-btn {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-menu a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+#logout-btn {
+    background: #e74c3c;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#logout-btn:hover {
+    background: #c0392b;
+}
+
+/* ============================================
+   MÓDULOS Y VISIBILIDAD
+   ============================================ */
+.module {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.active {
+    display: block !important;
+}
+
+/* ============================================
+   MÓDULO DE LOGIN Y REGISTRO DE USUARIO
+   ============================================ */
+.login-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 2rem;
+}
+
+.login-header i {
+    font-size: 3rem;
+    color: #4ecdc4;
+    margin-bottom: 1rem;
+}
+
+.login-header h2 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: #7f8c8d;
+}
+
+.login-info {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.login-info a {
+    color: #4ecdc4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-info a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   FORMULARIOS Y COMPONENTES
+   ============================================ */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4ecdc4;
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.form-group.error input {
+    border-color: #e74c3c;
+}
+
+.form-group.error .error-message {
+    display: block;
+}
+
+/* Botones */
+.btn-primary {
+    background: linear-gradient(to right, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+}
+
+/* ============================================
+   MÓDULO DE REGISTRO (Dueños y Mascotas)
+   ============================================ */
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.form-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-card h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #4ecdc4;
+}
+
+.registros-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.registros-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.lista-registros {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.registro-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.registro-item:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   MÓDULO DE AGENDA
+   ============================================ */
+.agenda-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+}
+
+.lista-servicios {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.servicio-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #4ecdc4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.servicio-info h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.servicio-info p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   MÓDULO DE CARRITO
+   ============================================ */
+
+/* Filtros del catálogo */
+.filtros-catalogo, .filtros-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.filtro-btn, .filtro-galeria-btn {
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #495057;
+    transition: all 0.3s;
+}
+
+.filtro-btn:hover, .filtro-galeria-btn:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.filtro-btn.active, .filtro-galeria-btn.active {
+    background: #4ecdc4;
+    color: white;
+    border-color: #4ecdc4;
+}
+
+/* Catálogo de productos */
+.catalogo-grid-interno {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.producto-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+}
+
+.producto-img {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.imagen-producto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 3px solid #4ecdc4;
+}
+
+/* Badge de categoría */
+.categoria-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.categoria-badge.servicios {
+    background: #3498db;
+}
+
+.categoria-badge.productos {
+    background: #2ecc71;
+}
+
+.categoria-badge.perros {
+    background: #e74c3c;
+}
+
+.categoria-badge.gatos {
+    background: #9b59b6;
+}
+
+.producto-info {
+    padding: 1.5rem;
+}
+
+.producto-info h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.producto-info p {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+.producto-precio {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.btn-comprar {
+    width: 100%;
+    padding: 10px;
+    background: #4ecdc4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+    background: #44a08d;
+}
+
+/* Galería de imágenes */
+.galeria-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.galeria-imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 150px;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.1);
+}
+
+.galeria-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.galeria-overlay small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Carrito de compras */
+.carrito-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+}
+
+.carrito-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 1.5rem 0;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.carrito-item:last-child {
+    border-bottom: none;
+}
+
+.carrito-item-info h4 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.carrito-item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrito-item-cantidad button {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrito-totales {
+    border-top: 2px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.total-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.total-item:last-child {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #4ecdc4;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* ============================================
+   MODAL PARA IMÁGENES
+   ============================================ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal-contenido img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ============================================
+   ESTILOS RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .module {
+        padding: 1rem;
+    }
+    
+    .form-container,
+    .registros-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .catalogo-grid-interno {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .galeria-imagenes {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .filtros-catalogo, .filtros-galeria {
+        gap: 5px;
+    }
+    
+    .filtro-btn, .filtro-galeria-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+    
+    .catalogo-grid-interno {
+        grid-template-columns: 1fr;
+    }
+    
+    .galeria-imagenes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .carrito-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa de Mascotas - Sistema de Gestión</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Barra de navegación (oculta inicialmente) -->
+    <nav id="navbar" class="hidden">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-paw"></i>
+                <h1>Spa Mascotas</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" data-module="registro"><i class="fas fa-user-plus"></i> Registro</a></li>
+                <li><a href="#" data-module="agenda"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                <li><a href="#" data-module="carrito"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+                <li><button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Módulo 0: Login -->
+        <section id="login-module" class="module active">
+            <div class="login-container">
+                <div class="login-header">
+                    <i class="fas fa-paw"></i>
+                    <h2>Bienvenido al Spa de Mascotas</h2>
+                    <p>Sistema de Gestión Interno</p>
+                </div>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="usuario"><i class="fas fa-user"></i> Usuario:</label>
+                        <input type="text" id="usuario" placeholder="admin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contrasena"><i class="fas fa-lock"></i> Contraseña:</label>
+                        <input type="password" id="contrasena" placeholder="1234" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                    </button>
+                    <div class="login-info">
+                        <p>¿No tienes cuenta? <a href="#" id="link-registro">Crea una aquí</a></p>
+                        <p><strong>Credenciales de prueba:</strong></p>
+                        <p>Usuario: admin | Contraseña: 1234</p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Módulo de Registro de Usuario -->
+        <section id="registro-usuario-module" class="module hidden">
+            <div class="login-container">
+                <div class="login-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Crear Cuenta</h2>
+                    <p>Regístrate para acceder al sistema</p>
+                </div>
+                <form id="form-registro-usuario">
+                    <div class="form-group">
+                        <label for="nombre-completo"><i class="fas fa-user"></i> Nombre completo:</label>
+                        <input type="text" id="nombre-completo" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo-registro"><i class="fas fa-envelope"></i> Correo electrónico:</label>
+                        <input type="email" id="correo-registro" placeholder="Ej: juan@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contrasena-registro"><i class="fas fa-lock"></i> Contraseña:</label>
+                        <input type="password" id="contrasena-registro" placeholder="Elige una contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmar-contrasena"><i class="fas fa-lock"></i> Confirmar Contraseña:</label>
+                        <input type="password" id="confirmar-contrasena" placeholder="Repite la contraseña" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-user-plus"></i> Crear Cuenta
+                    </button>
+                    <div class="login-info">
+                        <p>¿Ya tienes cuenta? <a href="#" id="link-login">Inicia sesión aquí</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- Módulo 1: Registro Dueños y Mascotas -->
+        <section id="registro-module" class="module hidden">
+            <h2><i class="fas fa-user-plus"></i> Registro de Dueños y Mascotas</h2>
+
+            <div class="form-container">
+                <form id="form-dueno" class="form-card">
+                    <h3><i class="fas fa-user"></i> Datos del Dueño</h3>
+                    <div class="form-group">
+                        <label for="nombre-dueno">Nombre completo:</label>
+                        <input type="text" id="nombre-dueno" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" placeholder="Ej: 555-1234" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" placeholder="Ej: juan@email.com" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i> Registrar Dueño
+                    </button>
+                </form>
+
+                <form id="form-mascota" class="form-card">
+                    <h3><i class="fas fa-paw"></i> Datos de la Mascota</h3>
+                    <div class="form-group">
+                        <label for="nombre-mascota">Nombre:</label>
+                        <input type="text" id="nombre-mascota" placeholder="Ej: Firulais" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="especie">Especie:</label>
+                        <select id="especie" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="perro">Perro</option>
+                            <option value="gato">Gato</option>
+                            <option value="ave">Ave</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="raza">Raza:</label>
+                        <input type="text" id="raza" placeholder="Ej: Labrador" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i> Registrar Mascota
+                    </button>
+                </form>
+            </div>
+
+            <div class="registros-container">
+                <div class="registros-card">
+                    <h3><i class="fas fa-list"></i> Dueños Registrados</h3>
+                    <div id="lista-duenos" class="lista-registros">
+                        <!-- Aquí se mostrarán los dueños registrados -->
+                    </div>
+                </div>
+                <div class="registros-card">
+                    <h3><i class="fas fa-list"></i> Mascotas Registradas</h3>
+                    <div id="lista-mascotas" class="lista-registros">
+                        <!-- Aquí se mostrarán las mascotas registradas -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Módulo 2: Agenda de Servicios -->
+        <section id="agenda-module" class="module hidden">
+            <h2><i class="fas fa-calendar-alt"></i> Agenda de Servicios</h2>
+
+            <form id="form-agenda" class="form-card">
+                <h3><i class="fas fa-plus-circle"></i> Nuevo Servicio</h3>
+                <div class="form-group">
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" required>
+                </div>
+                <div class="form-group">
+                    <label for="mascota-agenda">Mascota:</label>
+                    <select id="mascota-agenda" required>
+                        <option value="">Seleccionar mascota...</option>
+                        <option value="perro">Perro</option>
+                        <option value="gato">Gato</option>
+                        <option value="ave">Ave</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="servicio">Servicio:</label>
+                    <select id="servicio" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="baño">Baño completo</option>
+                        <option value="corte">Corte de pelo</option>
+                        <option value="uñas">Corte de uñas</option>
+                        <option value="spa">Spa completo</option>
+                        <option value="veterinario">Consulta veterinaria</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-calendar-plus"></i> Agendar Servicio
+                </button>
+            </form>
+
+            <div class="agenda-container">
+                <h3><i class="fas fa-calendar-check"></i> Servicios Agendados</h3>
+                <div id="lista-agenda" class="lista-servicios">
+                    <!-- Aquí se mostrarán los servicios agendados -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Módulo 3: Carrito de Compras -->
+        <section id="carrito-module" class="module hidden">
+            <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
+
+            <div class="catalogo-container">
+                <h3><i class="fas fa-store"></i> Catálogo de Productos</h3>
+                <div id="catalogo" class="catalogo-grid">
+                    <!-- Catálogo se generará con JavaScript -->
+                </div>
+            </div>
+
+            <div class="carrito-container">
+                <div class="carrito-detalle">
+                    <h3><i class="fas fa-shopping-basket"></i> Tu Carrito</h3>
+                    <div id="carrito-items" class="carrito-items">
+                        <!-- Los productos del carrito aparecerán aquí -->
+                        <p class="empty-cart">El carrito está vacío</p>
+                    </div>
+
+                    <div class="carrito-totales">
+                        <div class="total-item">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="total-item">
+                            <span>Total:</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                        <button id="vaciar-carrito" class="btn-secondary">
+                            <i class="fas fa-trash"></i> Vaciar Carrito
+                        </button>
+                        <button id="finalizar-compra" class="btn-primary">
+                            <i class="fas fa-check"></i> Finalizar Compra
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
